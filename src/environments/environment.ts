@@ -4,14 +4,14 @@
 
 export const environment = {
   firebase: {
-    apiKey: 'AIzaSyCwZaIgddFRHQe1dGxZU8sJ4CR1MsxsWAE',
-    authDomain: 'nestjs-20698.firebaseapp.com',
-    projectId: 'nestjs-20698',
-    storageBucket: 'nestjs-20698.appspot.com',
-    messagingSenderId: '6525615243',
-    appId: '1:6525615243:web:359ebef1b330fb02aca88e',
+    apiKey: "AIzXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    authDomain: "YOUR-PROJECT.firebaseapp.com",
+    projectId: "YOUR-PROJECT",
+    storageBucket: "YOUR-PROJECT.appspot.com",
+    messagingSenderId: "00000000000",
+    appId: "1:00000000000:web:abcdef0123456789abcdef"
   },
-  apiUrl: 'https://us-central1-nestjs-20698.cloudfunctions.net/api/',
+  apiUrl: 'https://REGION-YOUR-PROJECT.cloudfunctions.net/api/',
   production: false,
 };
 

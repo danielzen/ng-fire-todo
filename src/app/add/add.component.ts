@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../services/todo.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
@@ -10,13 +10,13 @@ import { NzMessageService } from 'ng-zorro-antd/message';
   styleUrls: ['./add.component.scss'],
 })
 export class AddComponent implements OnInit {
-  todoForm: FormGroup;
+  todoForm: UntypedFormGroup;
   editMode: boolean = false;
   id!: string | null;
 
   constructor(
     private todoService: TodoService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private message: NzMessageService) {
