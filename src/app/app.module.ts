@@ -13,7 +13,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { FirebaseInterceptor } from './interceptor/firebase.interceptor';
 import { DEFAULTS, SETTINGS } from '@angular/fire/compat/remote-config';
@@ -37,7 +37,6 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
         NzTableModule,
         NzDividerModule,
         ReactiveFormsModule,
-        HttpClientModule,
         NzFormModule,
         BrowserAnimationsModule,
         NzPopconfirmModule,
@@ -53,7 +52,8 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
       provide: SETTINGS,
       useFactory: () => isDevMode() ? {minimumFetchIntervalMillis: 10_000} : {},
     },
-    NzMessageService
+    NzMessageService,
+    provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [AppComponent],
 })

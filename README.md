@@ -1,27 +1,46 @@
 # Todo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
+This is the ToDo App frontend from Robert Isaac's article:
 
-## Development server
+* [Host a NestJS App on Firebase Functions: The Complete Guide](https://robert-isaac.medium.com/nestjs-with-firebase-the-complete-guide-aa0ade41cdef#44ca)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+It has been updated to [Angular v18](https://v18.angular.dev/). The backend is a
+NestJS app that is hosted on Firebase Functions which I have also
+updated [here](https://github.com/danielzen/NestJS-Firebase-ToDo).
 
-## Code scaffolding
+Note: I just updated to the most recent version of Angular and Firebase. I did
+not change the code or the article in any other way, but hopefully this is
+helpful to someone.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Setup
 
-## Build
+You need to make sure the `src/environments/environment.ts` file has the correct
+values for your Firebase project (and `src/environments/environment.prod.ts`
+if you deploy). You can get these values from the Firebase Console. The `apiUrl`
+should be the URL of your Firebase Functions app.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Firebase Hosting
 
-## Running unit tests
+To host this with Firebase Hosting, you need to have the Firebase CLI
+installed, `firebase login`, and run the following commands:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+firebase init
+```
 
-## Running end-to-end tests
+* Select `Hosting: Configure files for Firebase Hosting`
+* Create or select an existing Firebase Project
+* Your public directory is `dist/todo/browser`
+* Configure as a single-page app: `Yes`
+* Set up automatic builds and deploys with GitHub? `No`
+* If file /dist/todo/browser/index.html already exists. Overwrite? `No`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+You can then
 
-## Further help
+```
+pnpm run build
+firebase deploy
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+PS: This is not necessary to test your backend, it should work
+from `http://localhost:4200` as well by running `pnpm start` or `ng serve`.

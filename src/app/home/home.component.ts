@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import firebase from 'firebase/compat/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { GoogleAuthProvider } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   LoginGmail(): any {
-    return this.AuthLogin(new firebase.auth.GoogleAuthProvider()).then(() => {
+    return this.AuthLogin(new GoogleAuthProvider()).then(() => {
       this.router.navigate(['/list']);
     });
   }
@@ -29,5 +29,4 @@ export class HomeComponent implements OnInit {
         console.error(error);
       });
   }
-
 }
